@@ -1,10 +1,44 @@
-# ZONEBREAK economy — 1.0.4
+# ZONEBREAK economy — 1.0.5
 
-All coins are earned in-game. There are no real-money purchases. New players own Jolt at level 1 with zero coins and zero trophies. Wins give 8 fighter trophies, draws 4, losses 2. Trophy-road total sums progress earned across fighters without sharing individual trophy counters.
+Coins purchase levels and individual abilities; credits recruit selected fighters. Trophy counters stay individual. Their lifetime combined total advances a personalized road with varied spacing and rewards. No direct fighter rewards remain on the road.
+
+## Recruitment
+
+| Rarity | Credits | Initial roll weight | Complexity |
+| --- | --- | --- | --- |
+| Common | 100 | 35% | 1/5 |
+| Rare | 250 | 28% | 2/5 |
+| Epic | 500 | 20% | 3/5 |
+| Mythic | 900 | 12% | 4/5 |
+| Legendary | 1500 | 5% | 5/5 |
+
+A roll offers three unowned candidates from one rarity (or all remaining if fewer than three). Choose a target before credits are allocated. Progress and offers persist. Surplus carries over; target changes wait until completion. Exhausted rarities are removed and weights normalized. A direct chest unlock refunds credits already allocated to that target. Higher rarity does not apply a universal stat multiplier.
+
+## Example road
+
+This is only an example from seed 42. Actual profiles have their own saved seed and a different road. The road extends as progress increases.
+
+| Trophies | Reward |
+| --- | --- |
+| 45 | 240 credits |
+| 85 | 180 credits |
+| 131 | 220 coins |
+| 175 | 220 coins |
+| 218 | 60 coins |
+| 252 | 100 coins |
+| 301 | 60 coins |
+| 334 | Bonus chest |
+| 382 | 180 credits |
+| 421 | 60 credits |
+| 461 | 90 credits |
+| 482 | 350 coins |
+| 524 | 220 coins |
+| 542 | 60 coins |
+| 577 | 60 credits |
 
 ## Level prices
 
-| Target level | Coin price | Stat power |
+| Target level | Coins | Stat power |
 | --- | --- | --- |
 | 2 | 60 | 66.84% |
 | 3 | 80 | 68.68% |
@@ -26,90 +60,15 @@ All coins are earned in-game. There are no real-money purchases. New players own
 | 19 | 400 | 98.16% |
 | 20 | 420 | 100.00% |
 
-## Ability purchases
+## Ability prices
 
-| Choice | Gadget level / coins | Passive level / coins |
+| Choice | Gadget eligibility / coins | Passive eligibility / coins |
 | --- | --- | --- |
 | 1 | 5 / 150 | 8 / 250 |
 | 2 | 10 / 300 | 12 / 450 |
 | 3 | 15 / 600 | 16 / 750 |
 | 4 | 18 / 1000 | 20 / 1200 |
 
-## Trophy road
-
-Rewards are granted automatically once. Duplicate fighter milestones grant 250 coins instead.
-
-| Trophy-road total | Reward |
-| --- | --- |
-| 20 | 100 coins |
-| 40 | Rook — Tank |
-| 60 | 100 coins |
-| 80 | Sprig — Healer |
-| 100 | 100 coins |
-| 120 | Fuse — Artillery |
-| 140 | 100 coins |
-| 160 | Wisp — Assassin |
-| 180 | 120 coins |
-| 200 | Bulwark — Tank |
-| 220 | 120 coins |
-| 240 | Bramble — Tank |
-| 260 | 120 coins |
-| 280 | Kiln — Tank |
-| 300 | 120 coins |
-| 320 | Anchor — Tank |
-| 340 | 140 coins |
-| 360 | Nova — Damage dealer |
-| 380 | 140 coins |
-| 400 | Flint — Damage dealer |
-| 420 | 140 coins |
-| 440 | Echo — Damage dealer |
-| 460 | 140 coins |
-| 480 | Prism — Damage dealer |
-| 500 | 160 coins |
-| 520 | Pulse — Healer |
-| 540 | 160 coins |
-| 560 | Brook — Healer |
-| 580 | 160 coins |
-| 600 | Lumen — Healer |
-| 620 | 160 coins |
-| 640 | Mender — Healer |
-| 660 | 180 coins |
-| 680 | Tumble — Artillery |
-| 700 | 180 coins |
-| 720 | Cinder — Artillery |
-| 740 | 180 coins |
-| 760 | Drizzle — Artillery |
-| 780 | 180 coins |
-| 800 | Orbit — Artillery |
-| 820 | 200 coins |
-| 840 | Nyx — Assassin |
-| 860 | 200 coins |
-| 880 | Talon — Assassin |
-| 900 | 200 coins |
-| 920 | Volt — Assassin |
-| 940 | 200 coins |
-| 960 | Shade — Assassin |
-| 980 | 220 coins |
-| 1000 | Scope — Marksman |
-| 1020 | 220 coins |
-| 1040 | Kestrel — Marksman |
-| 1060 | 220 coins |
-| 1080 | Vega — Marksman |
-| 1100 | 220 coins |
-| 1120 | Quill — Marksman |
-| 1140 | 240 coins |
-| 1160 | Sable — Marksman |
-
 ## Daily chests
 
-First five wins per day earn one chest each. Midnight reset uses America/New_York, including DST. Unopened chests carry over. Six attempts per chest; each successful click upgrades one tier. Rarity never falls.
-
-| Rarity | Per-click upgrade chance | Coins |
-| --- | --- | --- |
-| Common | 60% | 60–100 |
-| Rare | 40% | 120–180 |
-| Epic | 25% | 240–360 |
-| Mythic | 12% | 500–750 |
-| Legendary | 0% | 1000–1500 |
-
-Only Legendary can replace its coin payout with a fighter: 25% chance, uniformly selected from unowned fighters. With all fighters owned, it always gives coins. A seed and partial click state are saved, and rewards are awarded only on the sixth click.
+Five wins per Eastern-Time day earn five daily chests; bonus road chests do not use daily slots. Six clicks per chest, saved between visits. Upgrade chances are 60% / 40% / 25% / 12%, one tier per success. Legendary has a 25% chance to directly unlock an unowned fighter. Other payouts have a 25% chance to be credits instead of coins: 30 / 70 / 150 / 300 / 500 by rarity. Remaining coin amounts are 60–100 / 120–180 / 240–360 / 500–750 / 1,000–1,500.

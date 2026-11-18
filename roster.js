@@ -1,6 +1,7 @@
-(function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.ZoneRoster=value;})(typeof globalThis!=='undefined'?globalThis:this,()=>{
+(function(root,factory){const value=factory(typeof module==='object'&&module.exports?require('./expansion.js'):root.ZoneExpansion);if(typeof module==='object'&&module.exports)module.exports=value;else root.ZoneRoster=value;})(typeof globalThis!=='undefined'?globalThis:this,(Expansion)=>{
 'use strict';
 const classes=[{id:'tank',name:'Tanks',role:'Tank',base:'rook',icon:'▣',info:'High health. Heavy hits. Almost no range.'},{id:'damage',name:'Damage dealers',role:'Damage dealer',base:'jolt',icon:'ϟ',info:'Mid-range pressure and high damage.'},{id:'healer',name:'Healers',role:'Healer',base:'sprig',icon:'✚',info:'Heal teammates and hurt enemies.'},{id:'artillery',name:'Artillery',role:'Artillery',base:'fuse',icon:'◉',info:'Lob explosives over cover.'},{id:'assassin',name:'Assassins',role:'Assassin',base:'wisp',icon:'◆',info:'Fast approaches. High burst. Low health.'},{id:'marksman',name:'Marksmen',role:'Marksman',base:'jolt',icon:'⌖',info:'Medium health. Long-range precision. Walls block your shots.'}];
+classes.push({id:'controller',name:'Controllers',role:'Controller',base:'relay',icon:'◎',info:'Hold areas with fields, returning attacks and destructible turrets.'});
 // Every entry supplies its own attack pattern, stats, super and visual crest.
 const fighters=[
 {id:'bulwark',name:'Bulwark',classId:'tank',color:'#d2ae7a',dark:'#826b4e',hp:8300,speed:188,range:90,damage:1880,rate:.85,reload:1.2,r:27,crest:'B',pattern:{arc:1.1},description:'The slowest, toughest tank. A broad hammer sweep and a protective team shockwave.',attack:'Hammer Sweep',super:'Stand Together',superInfo:'Deal 1,250 damage in a wide shockwave and shield nearby allies for 3 seconds.',superKind:'rally',specialName:'Fortress March'},
@@ -29,5 +30,6 @@ const fighters=[
 {id:'quill',name:'Quill',classId:'marksman',role:'Marksman',color:'#c4d29b',dark:'#748459',hp:4600,speed:224,range:750,damage:1300,rate:.84,reload:1.26,crest:'Q',pattern:{count:1,speed:970,r:5,pierce:true},description:'A line-piercing sharpshooter. Basic arrows can hit multiple fighters; a pinning super slows targets for follow-up shots.',attack:'Needle Arrow',super:'Pinning Shot',superInfo:'Loose one piercing arrow for 2,100 damage that slows enemies for 2.6 seconds. Range: 850 units.',superKind:'pinningshot',specialName:'Ranger Step'},
 {id:'sable',name:'Sable',classId:'marksman',role:'Marksman',color:'#d5aeb0',dark:'#8c657c',hp:5100,speed:210,range:740,damage:1610,rate:1.02,reload:1.4,crest:'B',pattern:{count:1,speed:1050,r:8},description:'A steady heavy-rifle specialist. Slower attacks hit harder, while a recoil super creates distance from pursuers.',attack:'Heavy Caliber',super:'Recoil Shot',superInfo:'Fire a 2,600-damage piercing shot up to 900 units, then retreat 135 units away from your aim. Walls block both.',superKind:'recoilshot',specialName:'Rifle Drill'}
 ];
-return {classes,fighters};
+fighters.push(...Expansion.fighters);
+return {classes,fighters,rarities:Expansion.rarities};
 });

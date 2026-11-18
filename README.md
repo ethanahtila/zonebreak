@@ -1,8 +1,8 @@
-# ZONEBREAK — 1.0.4
+# ZONEBREAK — 1.0.5
 
-A lightweight, original browser arena game with 30 fighters, six class menus, Duel, Hot Zone, Knockout, bot practice, friend rooms and real-player matchmaking. All art is drawn in code and all sound is synthesized. This game is separate from CU-Escape.
+A lightweight, original browser arena game with 70 fighters, seven class menus, Duel, Hot Zone, Knockout, bot practice, friend rooms and real-player matchmaking. All art is drawn in code and all sound is synthesized. This game is separate from CU-Escape.
 
-This update replaces XP with **coins, individual fighter trophies, a trophy road and daily win chests**. Twenty-level stat growth stays in place. There are no real-money purchases.
+This update adds **credits, personalized trophy-road rewards, rarity-based recruitment, 40 new fighters, Controllers and destructible cover**. Coins, individual fighter trophies, daily chests and twenty-level stat growth remain. There are no real-money purchases.
 
 ## Try it
 
@@ -25,16 +25,32 @@ This version uses a keyboard and mouse, without touch movement controls.
 
 | Class | Fighters |
 | --- | --- |
-| Tanks | Rook, Bulwark, Bramble, Kiln, Anchor |
-| Damage dealers | Jolt, Nova, Flint, Echo, Prism |
-| Healers | Sprig, Pulse, Brook, Lumen, Mender |
-| Artillery | Fuse, Tumble, Cinder, Drizzle, Orbit |
-| Assassins | Wisp, Nyx, Talon, Volt, Shade |
-| Marksmen | Scope, Kestrel, Vega, Quill, Sable |
+| Tanks | Rook, Bulwark, Bramble, Kiln, Anchor, Rampart, Golem, Atlas, Vanguard, Titan |
+| Damage dealers | Jolt, Nova, Flint, Echo, Prism, Blaze, Burst, Rivet, Cascade, Vector |
+| Healers | Sprig, Pulse, Brook, Lumen, Mender, Fern, Aegis, Chorus, Solace, Link |
+| Artillery | Fuse, Tumble, Cinder, Drizzle, Orbit, Pebble, Scoria, Tempest, Mortar, Comet |
+| Assassins | Wisp, Nyx, Talon, Volt, Shade, Fang, Mirage, Reaper, Blink, Specter |
+| Marksmen | Scope, Kestrel, Vega, Quill, Sable, Horizon, Osprey, Needle, Parallax, Zenith |
+| Controllers | Relay, Bastion, Glade, Patch, Cipher, Magnet, Sentry, Tide, Mosaic, Circuit |
 
-Tanks hit hard at very short range. Damage dealers specialize in mid-range pressure. Healers damage enemies or heal wounded allies. Artillery throws over cover. Assassins are quick and fragile. Marksmen have medium health and very long-range shots that still stop at walls. Each fighter has its own stats, attack pattern and super; see **FIGHTERS.md**.
+Choose a class to see its ten fighters. Each fighter has its own stats, attack pattern and super; see **FIGHTERS.md**. Rarity measures credit cost and mastery complexity, not an automatic stat multiplier.
 
-Fighters have three reloading ammo cells. Staying out of combat restores health after four seconds. Damage/healing and a slow passive charge fill the super meter. Bushes conceal enemies unless close or revealed by attacking/taking damage. Walls block walking, dashes and ordinary shots; artillery bombs travel over them.
+Damage dealers now have **60% stronger basic attacks, 10% faster reload times and 15% stronger super damage**. Marksmen keep their separate long-range tuning. All tanks gain **150 maximum health**; level-1 health receives the proportional increase under the existing 65%–100% scaling.
+
+Fighters have three reloading ammo cells. Staying out of combat restores health after four seconds. Damage/healing and passive charge fill supers. Bushes conceal enemies unless close or revealed by combat. Cover blocks ordinary movement and shots until a permitted ability breaks it.
+
+## Controllers and wall destruction
+
+Controllers deal medium basic damage with varied attack ranges. Their supers hold areas through damage/slow/pull fields, returning projectile fans, or destructible turrets. Relay deploys a turret; Patch throws a returning fan; Cipher lays a line of control fields; Magnet pulls enemies into a well; Mosaic manages two turrets; Circuit sequences hazards.
+
+Turrets can be destroyed by opposing basic attacks, explosions and damage fields. They expire, obey line-of-sight rules unless explicitly built as a lobber, and do not count as students or capture zones. Fields and deployables have finite lifetimes and bounded counts.
+
+Super wall breakers: **Rook** (Faultline), **Fuse** (Fireworks), **Kiln** (Open Furnace), **Flint** (Breach Volley), **Orbit** (Impact Event), **Rampart** (Breach Rush), **Titan** (Aftershock), **Burst** (Demolition Line), **Pebble** (Shatter Grid), **Scoria** (Caldera), **Comet** (Orbital Breach).
+
+- **Marksmen and assassins can never break walls.**
+- **Controller supers can never break walls.** Cipher, Sentry and Mosaic can purchase the third gadget, **Lane Cutter**, at level 15 to breach nearby cover.
+- Other listed fighters break cover through their supers. Breaks remove the wall for everyone for the rest of that match, including later rounds; new matches restore intact cover.
+- Collision, projectile blocking, sight lines, bot navigation, aim previews and rendered terrain use the same remaining walls. Outer arena boundaries remain intact.
 
 ## Trophies and trophy road
 
@@ -49,9 +65,29 @@ Completed matches grant trophies **only to the fighter used**:
 
 Practice, friend-room and public online matches count. Trophies do not increase a fighter’s level. Switching fighters switches to that fighter’s own trophy counter.
 
-The combined lifetime trophy total advances the **trophy road**. It does not copy trophies to other fighters. Rewards are added automatically and can be viewed with the Trophy Road button. Coins appear at 20 trophies and every 40 after that; fighter unlocks appear at 40 trophies and every 40 after that, finishing at 1,160. Every nonstarter fighter is on the road. If a chest already awarded that fighter, its road milestone gives 250 coins instead. Rewards cannot be claimed twice.
+The combined lifetime total advances a **personalized, saved trophy road**. Trophies are not copied to other fighters. Milestone gaps vary from 18–49 trophies; rewards vary between coins, credits and bonus chests, with varied amounts and occasional larger payouts. The road extends as you advance and no longer alternates fixed fighter/coin rewards. There are **no direct fighter rewards** on the road. Bonus road chests do not consume daily win-drop slots.
 
-See **ECONOMY.md** for the complete road and prices.
+Road rewards are added automatically once. The screen shows recent and upcoming milestones. Reloading preserves the road seed and rewards instead of rerolling them.
+
+## Credits, fighter rarities and recruitment
+
+Open **Recruit** to see your randomly rolled rarity and up to **three unowned fighters from that rarity**. Choose one fighter to work toward. Newly earned credits automatically fill that target’s requirement; when full, the fighter unlocks and surplus credits remain banked. A new random-rarity offer is then prepared for your next choice.
+
+| Fighter rarity | Credits required | Initial rarity-roll weight | Mastery complexity |
+| --- | --- | --- | --- |
+| Common | 100 | 35% | 1 / 5 |
+| Rare | 250 | 28% | 2 / 5 |
+| Epic | 500 | 20% | 3 / 5 |
+| Mythic | 900 | 12% | 4 / 5 |
+| Legendary | 1,500 | 5% | 5 / 5 |
+
+Each rarity contains 14 fighters, with two from every class. The starting Jolt is Common. Higher rarities tend toward multi-part attacks, positioning, timing and deployable management; they do not get a universal rarity damage/health bonus.
+
+Offers and selected-target progress are saved. You cannot reroll by closing/reloading or change targets midway. Exhausted rarities are excluded from future rolls and remaining weights are normalized. If fewer than three candidates remain in the selected rarity, all remaining ones are shown. Credits are never spent on random unwanted fighters: you choose before any credits are allocated.
+
+Credits come from road rewards and can also appear in chests. Coins continue to buy levels and abilities. If a Legendary chest directly grants your current target, already allocated credits are refunded to your bank. If every fighter is owned, credits remain banked for future additions.
+
+See **ECONOMY.md** for prices, road examples and reward details.
 
 ## Five daily win chests
 
@@ -67,7 +103,7 @@ Click Daily Drops in the menu or Open Daily Drop on the result screen. Each ches
 | Mythic | 12% → Legendary | 500–750 |
 | Legendary | Already maximum | 1,000–1,500 |
 
-Only a **Legendary** chest can award a fighter: it has a **25% chance** to award one randomly chosen unowned fighter instead of coins. If every fighter is owned, it awards coins. Lower rarities always give coins. Upgrade odds are conditional on the chest’s current rarity, not the probability of obtaining that final rarity.
+Only a **Legendary** chest can award a fighter: it has a **25% chance** to award one randomly chosen unowned fighter instead of coins. For non-fighter payouts, there is a 25% chance to receive credits instead of coins: 30 / 70 / 150 / 300 / 500 credits for Common through Legendary chests. If every fighter is owned, a Legendary payout is coins or banked credits. Lower chest rarities never award a fighter directly. Upgrade odds are conditional on the chest’s current rarity, not the probability of obtaining that final rarity.
 
 Earned unopened chests carry over to later days. The chest’s seed, clicks, rarity and final reward are saved, so closing/reloading cannot restart its attempts or pay out again.
 
@@ -106,17 +142,19 @@ Duel/Knockout have a closing danger ring in the last 25 seconds. Timeout compare
 
 The server owns combat, uses a 30 Hz simulation, and sends 15 Hz snapshots. Clients predict local movement and interpolate remote movement. Disconnecting fighters become bots without resetting the match, and the room host transfers to another member. Online games continue while the match menu is open.
 
-## Saves and upgrading from 1.0.3
+## Saves and upgrading from earlier versions
 
-**Profiles remain browser-local, not server accounts.** Coins, fighter ownership, purchases, levels, trophies, road claims and chest progress save in this browser. Clearing its storage can erase them. Saves do not automatically transfer between devices or between file-based practice and a hosted website.
+**Profiles remain browser-local, not server accounts.** Coins, credits, fighter ownership, purchases, levels, trophies, road seed/claims, recruitment offers, target progress and chest progress save in this browser. Clearing its storage can erase them. Saves do not automatically transfer between devices or between file-based practice and a hosted website.
 
-Old XP profiles are read once: fighters with previously earned XP remain owned and retain their corresponding level and previously earned ability choices. Jolt is always owned. Unplayed fighters that were previously just selectable now need collecting. Old XP is not earned further and is not converted into spendable coins. Career wins/match counts remain. Old results do not retroactively create trophies or daily chests.
+Profiles from 1.0.4 keep their coins, owned fighters, levels, trophies, ability purchases, daily counters and earned chests. Newly introduced fighters start locked. Existing road rewards are retained; earlier milestones on the new road are marked complete to prevent retroactive double rewards. Credits start at zero and a saved recruitment offer is created.
+
+Older XP-era profiles still migrate: fighters with earned XP retain ownership, corresponding levels and earned ability choices. Jolt is always owned. XP is no longer granted. No new trophies or daily chests are created for old results.
 
 Combat validates level limits, purchased ability declarations and unlock levels. However, **there is no authoritative account database**: the server trusts the local profile’s supplied ownership, purchases and trophies. These casual profiles and exact-trophy queues are not cheat-proof or a secure ranked economy. The daily clock uses the device’s time interpreted in Eastern Time. A server-account economy would need server-owned profiles and transactions.
 
 ## Update your existing Render game
 
-Replace the contents of your existing ZONEBREAK repository with the files inside this ZIP’s `ZONEBREAK` folder, then commit. **Include the new `economy.js`**, as well as the updated `roster.js`, `core.js`, `render.js`, `app.js`, `index.html`, `style.css`, `PLAY.html` and package files. Keep `vendor` in the repository. No `public` folder or separate art upload is used.
+Replace the contents of your existing ZONEBREAK repository with the files inside this ZIP’s `ZONEBREAK` folder, then commit. **Include the new `expansion.js` and updated `economy.js`**, as well as the updated `roster.js`, `core.js`, `render.js`, `app.js`, `index.html`, `style.css`, `PLAY.html` and package files. Keep `vendor` in the repository. No `public` folder or separate art upload is used.
 
 Use the same Render **Web Service**, with these unchanged settings:
 
@@ -128,7 +166,7 @@ Use the same Render **Web Service**, with these unchanged settings:
 | Node | `24` |
 | Root directory | Blank if package.json is at repository root |
 
-Once deployed, reload and check for **1.0.4** in the menu. HTTPS automatically uses WSS for game connections. This package has not been deployed to your Render account. Keep CU-Escape in its separate repository/service.
+Once deployed, reload and check for **1.0.5** in the menu. HTTPS automatically uses WSS for game connections. This package has not been deployed to your Render account. Keep CU-Escape in its separate repository/service.
 
 One server instance is supported. Rooms/queues are in memory, so deploying or restarting ends active matches. Additional instances would need shared matchmaking/room infrastructure.
 
@@ -150,4 +188,4 @@ node build.cjs
 npm test
 ```
 
-The 63 automated tests cover combat, all fighters and abilities, wall sliding, 20-level scaling, purchased ability gates, coin transactions, Jolt-only starts, trophy-road rewards, six-click saved chests, daily limits and Eastern Time/DST resets, exact-trophy queues at different levels, real HTTP/WebSocket games, room replay/disconnects, save migration and application UI flows. UI tests use a simulated DOM; they do not replace live browser or internet-latency playtesting.
+The 80 automated tests cover all 70 fighters, rarity pools, saved recruitment choices and progress, credit allocation/carryover, personalized roads, migration, purchased abilities, daily chests and Eastern Time/DST resets, exact-trophy matchmaking, wall-breaking restrictions, collision/visibility/navigation changes, destructible turrets, live wall/turret synchronization, room replays, and UI flows. Forty-two additional bot matches exercised all fighters across three modes with bounded effects and finite state. All portraits and a controller/breaching scene were rendered for visual inspection. UI tests use a simulated DOM; they do not replace live browser or internet-latency playtesting.
