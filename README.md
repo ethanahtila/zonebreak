@@ -1,4 +1,4 @@
-# ZONEBREAK — 1.0.0
+# ZONEBREAK — 1.0.1
 
 A separate, original browser arena game. ZONEBREAK is a working title. It does not modify CU-Escape. All graphics are drawn in code, sound is synthesized, and the whole project is small enough to upload together. There are no sprite packs, external fonts, asset servers, or build downloads.
 
@@ -27,27 +27,46 @@ This initial version targets computers with a keyboard and mouse. It has no touc
 
 Duel and Knockout have a closing danger ring during the final 25 seconds. A timeout compares total remaining health as a fraction of each fighter’s maximum health. Ties draw the round; a ten-minute overall cap prevents endless tied matches. Each mode has its own cover and bush layout.
 
-## Five fighters
+## Five class menus, twenty-five fighters
 
-| Fighter | Role | Basic attack | Super |
-| --- | --- | --- | --- |
-| Rook | Tank | Very short-range, heavy frontal strike | Faultline: charge, area damage and temporary protection |
-| Jolt | Damage | High-damage, mid-range three-bolt burst | Rail Surge: piercing charged shot |
-| Sprig | Healer | Bolts heal wounded teammates or damage enemies | Sanctuary: place a healing area |
-| Fuse | Artillery | Lob bombs over walls; damage occurs when they land | Fireworks: clustered bombardment |
-| Wisp | Assassin | Fast, fragile fighter with short-range dagger bursts | Slipstrike: aimed dash and slash |
+Click a class to show only that class’s five fighter cards. The roster no longer fills the screen with every fighter.
 
-Every fighter starts with three ammo cells, one equipped gadget, and one passive. Ammo reloads automatically. Staying out of combat restores health after four seconds. Damage and healing charge supers, alongside a slow passive charge.
+| Class | Fighters |
+| --- | --- |
+| Tanks | Rook, Bulwark, Bramble, Kiln, Anchor |
+| Damage dealers | Jolt, Nova, Flint, Echo, Prism |
+| Healers | Sprig, Pulse, Brook, Lumen, Mender |
+| Artillery | Fuse, Tumble, Cinder, Drizzle, Orbit |
+| Assassins | Wisp, Nyx, Talon, Volt, Shade |
 
-**Gadgets:** Rook chooses damage reduction or emergency healing; Jolt chooses instant ammo or a stronger next burst; Sprig chooses self-healing or ally healing; Fuse chooses a retreating blast or instant bomb detonation; Wisp chooses brief concealment or bonus burst damage. Each activates once per cooldown. Holding E does not repeatedly activate it when the cooldown expires. Gadgets recharge with time, not payments or limited match charges.
+Each fighter has independent progression, different base stats, its own attack pattern and a unique super. Tanks have almost no basic attack range. Damage dealers specialize in mid-range fire. All five healers can heal allies or damage enemies with their basic attacks. Every artillery fighter lobs over walls. Assassins have high movement speed and low health. See **FIGHTERS.md** for all attacks, supers and stats.
 
-**Passives:** two options per fighter enhance their role through slowing, low-health defense, range damage, faster reloading, healing return, faster regeneration, wider blasts, lingering damage, finishing damage, or healing on eliminations. Read the exact values in the loadout menu.
+New playstyles include Anchor’s hook, Echo’s returning wave, Bramble’s slowing thorns, Brook’s piercing healing bolts, Lumen’s protective halo, Cinder’s persistent fire, Nyx’s empowered cloak, Volt’s storm dash and Shade’s life-stealing super.
+
+Every fighter starts with three ammo cells. Ammo reloads automatically. Staying out of combat restores health after four seconds. Damage and healing charge supers, alongside a slow passive charge. **Supers remain available at level 1; gadgets and passives do not.**
+
+Each fighter now has **three gadget choices and three passive choices**, with class-based effects. Equip one gadget and one passive once their unlock levels are reached. Gadgets activate once per cooldown; holding E cannot repeatedly trigger one. The third options add tank mobility, damage-dealer evasive dashes, healer protection, artillery emergency ammo and assassin escape dashes. The third passives add healthy-tank movement, bonus super charge, stronger emergency healing, artillery mobility and out-of-combat assassin movement.
 
 Bushes conceal enemies until you get close or they reveal themselves by attacking or taking damage. Wisp’s concealment also ends at close range and is broken by attacking. Cover blocks movement, ordinary shots and dashes; lobbed bombs travel over it.
 
 ## Fighter levels and saves
 
-Each fighter has independent XP and levels 1–10. Each level adds 4% to base health, damage, and healing. The alternate gadget unlocks at level 3; the alternate passive at level 5. All five fighters and their first loadouts are available immediately.
+Each fighter has independent XP and levels 1–10. Each level adds 4% to base health, damage, and healing. All 25 fighters are selectable immediately. Unlocks are enforced in local practice and by the multiplayer server.
+
+| Level | Ability unlock | Total fighter XP |
+| --- | --- | --- |
+| 1 | Basic attack and super; no gadget or passive | 0 |
+| 2 | — | 350 |
+| 3 | — | 800 |
+| 4 | Gadget I | 1,350 |
+| 5 | — | 2,000 |
+| 6 | Passive I | 2,750 |
+| 7 | Gadget II | 3,600 |
+| 8 | Passive II | 4,550 |
+| 9 | Gadget III | 5,600 |
+| 10 | Passive III | 6,750 |
+
+This is slower than 1.0.0: level 2 used to require 100 XP and now requires 350. **Previously earned XP is preserved** in the same browser save. Displayed levels are recalculated using the slower curve, so an existing fighter may show a lower level. Unavailable old loadout choices fall back to the first unlocked choice, or remain inactive until the first unlock. New fighters receive separate fresh XP records.
 
 Finished matches award XP for participating, winning and contributing damage, healing or zone time. Practice earns 75% of online XP. Leaving an unfinished match does not award XP.
 
@@ -62,6 +81,12 @@ All players must open the same hosted website.
 - **Practice:** local bots only; no other players join. Choose Rookie, Contender or Veteran.
 
 The server owns combat and match state. Movement uses local prediction, server reconciliation and remote interpolation. If a player leaves, their fighter becomes a bot without resetting the game. The host role moves to another room member. Online games continue while a player opens the match menu.
+
+## Update your existing ZONEBREAK website
+
+Replace the files in the existing **ZONEBREAK** repository with the files inside this ZIP’s `ZONEBREAK` folder, then commit the changes. **Include the new `roster.js` file** along with the updated `core.js`, `render.js`, `app.js`, `index.html`, `style.css`, package files and `PLAY.html`. Keeping an old core or omitting the new roster file will break the page. No separate graphics upload is needed.
+
+Use your existing Render Web Service and its existing commands; they have not changed. After deployment, refresh the page and check that the menu shows **1.0.1**. Do not clear browser storage if you want to retain earned XP. An update restarts the game server, so finish active matches first.
 
 ## Deploy as a NEW Render game
 
@@ -99,13 +124,15 @@ Open `http://localhost:3000`. The server reads the `PORT` environment variable w
 
 ## Development and verification
 
-Edit `index.html`, `style.css`, `app.js`, `core.js`, or `render.js`. After changes, regenerate the optional offline practice page:
+Edit `index.html`, `style.css`, `app.js`, `roster.js`, `core.js`, or `render.js`. After changes, regenerate the optional offline practice page:
 
 ```sh
 node build.cjs
 npm test
 ```
 
-The 23 automated tests cover combat, five role differences, cover/lob interactions, healing, gadgets and cooldowns, leveling and unlocks, visibility, mode objectives, bot navigation, finished-match rewards, real WebSocket matchmaking, room joining/replay/settings, host migration, disconnect continuity, authoritative input, served assets and health checks, and application menu/input/save flows using a DOM fixture.
+The 36 automated tests cover the 25-fighter roster, five class filters, all basic attacks and healing attacks, higher-level unlocks, all 75 gadget selections, distinct super mechanics, wall-face sliding across all maps and fighter sizes, the original corner-lock regression, dash collisions, prediction, combat and objectives, bot navigation, rewards, real WebSocket matchmaking and room replay, multiplayer wall movement, save migration and UI flows. The old version stops moving in the corner-lock regression; this version slides past it.
+
+An additional 30 complete simulated bot matches exercised all three modes with locked level-1 loadouts and unlocked level-10 loadouts. The actual Canvas renderer was used to inspect every fighter portrait. Neither check is a claim of a live browser playtest or internet latency test.
 
 Tests include real HTTP/WebSocket connections; the UI tests use a simulated browser DOM. They do not replace a live browser playtest with friends or a real-world latency test. This package has not been deployed to your Render account.
