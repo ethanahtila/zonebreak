@@ -1,35 +1,27 @@
-# ZONEBREAK — 1.0.3
+# ZONEBREAK — 1.0.4
 
-A separate, original browser arena game. Update 1.0.3 expands every fighter to 20 levels, gradually increases health/damage/healing from reduced starting stats to full strength, and adds later ability choices and a mastery reward. Earned XP is preserved. ZONEBREAK is a working title. It does not modify CU-Escape. All graphics are drawn in code, sound is synthesized, and the whole project is small enough to upload together. There are no sprite packs, external fonts, asset servers, or build downloads.
+A lightweight, original browser arena game with 30 fighters, six class menus, Duel, Hot Zone, Knockout, bot practice, friend rooms and real-player matchmaking. All art is drawn in code and all sound is synthesized. This game is separate from CU-Escape.
 
-## Try it immediately
+This update replaces XP with **coins, individual fighter trophies, a trophy road and daily win chests**. Twenty-level stat growth stays in place. There are no real-money purchases.
 
-Extract this ZIP, then open **PLAY.html** in a desktop browser. This single file includes the complete game for offline bot practice. Use the normal website or local Node server for online play. A standalone file cannot provide its own multiplayer server.
+## Try it
 
-## Controls
+Extract the ZIP and open **PLAY.html** in a desktop browser for offline bot practice. Online play needs the included Node Web Service. No separate image packs or asset uploads are needed.
 
 | Control | Action |
 | --- | --- |
 | WASD | Move |
 | Mouse | Aim |
 | Left click / hold | Basic attack |
-| Q or right click | Charged super ability |
-| E | Gadget |
-| Escape | Pause practice / open online match menu |
+| Q or right click | Charged super |
+| E | Equipped gadget |
+| Escape | Pause practice / open online match menu / close reward screens |
 
-This initial version targets computers with a keyboard and mouse. It has no touch movement controls.
+This version uses a keyboard and mouse, without touch movement controls.
 
-## Modes
+## Start with Jolt and build a roster
 
-- **Duel:** 1 vs 1. First to two round wins, no mid-round respawn. Each round lasts up to 80 seconds.
-- **Hot Zone:** 3 vs 3. Hold the central zone to reach 100%. When both teams occupy it, scoring stops. Defeated fighters respawn after 3.5 seconds. A match lasts up to three minutes.
-- **Knockout:** 3 vs 3. Eliminate the opposing team, first to two round wins. No mid-round respawns; rounds last up to 90 seconds.
-
-Duel and Knockout have a closing danger ring during the final 25 seconds. A timeout compares total remaining health as a fraction of each fighter’s maximum health. Ties draw the round; a ten-minute overall cap prevents endless tied matches. Each mode has its own cover and bush layout.
-
-## Six class menus, thirty fighters
-
-Click a class to show only that class’s five fighter cards. The roster no longer fills the screen with every fighter.
+**New profiles own Jolt only.** Other fighters can be previewed in their class menu, but cannot be played, leveled or equipped until collected. Join-room fighter selectors also disable unowned fighters.
 
 | Class | Fighters |
 | --- | --- |
@@ -40,115 +32,122 @@ Click a class to show only that class’s five fighter cards. The roster no long
 | Assassins | Wisp, Nyx, Talon, Volt, Shade |
 | Marksmen | Scope, Kestrel, Vega, Quill, Sable |
 
-Each fighter has independent progression, different base stats, its own attack pattern and a unique super. Tanks have almost no basic attack range. Damage dealers specialize in mid-range fire. All five healers can heal allies or damage enemies with their basic attacks. Every artillery fighter lobs over walls. Assassins have high movement speed and low health. Marksmen have medium health (4,500–5,100 base HP), long straight-line range (690–780 units), and slower deliberate shots. Cover still blocks their attacks. See **FIGHTERS.md** for all attacks, supers and stats.
+Tanks hit hard at very short range. Damage dealers specialize in mid-range pressure. Healers damage enemies or heal wounded allies. Artillery throws over cover. Assassins are quick and fragile. Marksmen have medium health and very long-range shots that still stop at walls. Each fighter has its own stats, attack pattern and super; see **FIGHTERS.md**.
 
-New playstyles include Anchor’s hook, Echo’s returning wave, Bramble’s slowing thorns, Brook’s piercing healing bolts, Lumen’s protective halo, Cinder’s persistent fire, Nyx’s empowered cloak, Volt’s storm dash and Shade’s life-stealing super.
+Fighters have three reloading ammo cells. Staying out of combat restores health after four seconds. Damage/healing and a slow passive charge fill the super meter. Bushes conceal enemies unless close or revealed by attacking/taking damage. Walls block walking, dashes and ordinary shots; artillery bombs travel over them.
 
-Every fighter starts with three ammo cells. Ammo reloads automatically. Staying out of combat restores health after four seconds. Damage and healing charge supers, alongside a slow passive charge. **Supers remain available at level 1; gadgets and passives do not.**
+## Trophies and trophy road
 
-Each fighter now has **four gadget choices and four passive choices**, with class-based effects. Equip one gadget and one passive once their unlock levels are reached. Gadgets activate once per cooldown; holding E cannot repeatedly trigger one. The third options add tank mobility, damage-dealer and marksman evasive dashes, healer protection, artillery emergency ammo and assassin escape dashes. The third passives add healthy-tank movement, bonus damage-dealer/marksman super charge, stronger emergency healing, artillery mobility and out-of-combat assassin movement. The new fourth gadgets provide a tank shockwave/shield, a reload-and-speed burst, team restoration, an empowered artillery attack, or a cloaked assassin retreat. Fourth passives improve tank regeneration, full-ammo opening shots, healthy-healer output, basic blast damage, or cloaked first strikes. Level 20 also grants an automatic mastery badge: a gold fighter card and a star by the fighter’s name in matches.
+Completed matches grant trophies **only to the fighter used**:
 
-Bushes conceal enemies until you get close or they reveal themselves by attacking or taking damage. Wisp’s concealment also ends at close range and is broken by attacking. Cover blocks movement, ordinary shots and dashes; lobbed bombs travel over it.
+| Result | Fighter trophies |
+| --- | --- |
+| Win | +8 |
+| Draw | +4 |
+| Loss | +2 |
+| Leave before the match ends | 0 |
 
-## Fighter levels and saves
+Practice, friend-room and public online matches count. Trophies do not increase a fighter’s level. Switching fighters switches to that fighter’s own trophy counter.
 
-Each fighter has independent XP and **levels 1–20**. Level 1 starts with **65% of maximum health, damage and healing**. These values rise evenly by about 1.84 percentage points of maximum per level, reaching **100% at level 20**. The old level-1 base stat values are now the level-20 maximum values; the previous multiplier above those values is removed. Speed, range, cooldowns and movement are not increased by level.
+The combined lifetime trophy total advances the **trophy road**. It does not copy trophies to other fighters. Rewards are added automatically and can be viewed with the Trophy Road button. Coins appear at 20 trophies and every 40 after that; fighter unlocks appear at 40 trophies and every 40 after that, finishing at 1,160. Every nonstarter fighter is on the road. If a chest already awarded that fighter, its road milestone gives 250 coins instead. Rewards cannot be claimed twice.
 
-The menu shows current health/damage/healing alongside each maximum, plus stat power, an expandable 20-level reward track, and mastery status. Every level grants stat growth, including levels between ability unlocks. Ability descriptions list damage and healing at full level-20 power; actual match output scales to the fighter’s level.
+See **ECONOMY.md** for the complete road and prices.
 
-All 30 fighters remain selectable immediately. Equip one gadget and one passive once unlocked; new choices are alternatives, not extra simultaneous slots. There are no gadgets or passives at level 1. Supers remain available from level 1.
+## Five daily win chests
 
-| Level | Reward (plus stat growth) | Total fighter XP |
+The first **five wins per day** each award one chest. Losses/draws do not award chests. Further wins still award trophies. The counter resets at **midnight in Cedarville, Ohio: America/New_York / Eastern Time**, automatically accounting for daylight saving.
+
+Click Daily Drops in the menu or Open Daily Drop on the result screen. Each chest starts Common and gives **exactly six upgrade attempts**. Each successful click advances one rarity; a failed attempt keeps the current rarity. Reward delivery happens once, on click six.
+
+| Current rarity | Chance each click upgrades it | Coin reward if final rarity |
 | --- | --- | --- |
-| 1 | Basic attack + super | 0 |
-| 2 | Stat growth | 350 |
-| 3 | Stat growth | 800 |
-| 4 | Stat growth | 1,350 |
-| 5 | Gadget 1 | 2,000 |
-| 6 | Stat growth | 2,750 |
-| 7 | Stat growth | 3,600 |
-| 8 | Passive 1 | 4,550 |
-| 9 | Stat growth | 5,600 |
-| 10 | Gadget 2 | 6,750 |
-| 11 | Stat growth | 8,000 |
-| 12 | Passive 2 | 9,350 |
-| 13 | Stat growth | 10,800 |
-| 14 | Stat growth | 12,350 |
-| 15 | Gadget 3 | 14,000 |
-| 16 | Passive 3 | 15,750 |
-| 17 | Stat growth | 17,600 |
-| 18 | Gadget 4 | 19,550 |
-| 19 | Stat growth | 21,600 |
-| 20 | Passive 4 + mastery badge | 23,750 |
+| Common | 60% → Rare | 60–100 |
+| Rare | 40% → Epic | 120–180 |
+| Epic | 25% → Mythic | 240–360 |
+| Mythic | 12% → Legendary | 500–750 |
+| Legendary | Already maximum | 1,000–1,500 |
 
+Only a **Legendary** chest can award a fighter: it has a **25% chance** to award one randomly chosen unowned fighter instead of coins. If every fighter is owned, it awards coins. Lower rarities always give coins. Upgrade odds are conditional on the chest’s current rarity, not the probability of obtaining that final rarity.
 
-**Earned XP and saves are preserved.** The first ten XP thresholds are unchanged from 1.0.2, so existing level numbers carry over and can now continue to 20. Displayed stats and ability availability follow the new balance and unlock schedule. An old equipped choice that is now locked falls back to the first available choice; if none is unlocked, it stays inactive.
+Earned unopened chests carry over to later days. The chest’s seed, clicks, rarity and final reward are saved, so closing/reloading cannot restart its attempts or pay out again.
 
-Finished matches award XP for participating, winning and contributing damage, healing or zone time. Practice earns 75% of online XP. Leaving an unfinished match does not award XP.
+## Coins buy levels and abilities separately
 
-**Progress saves to this browser’s local storage.** It is not an account system, cannot move between devices automatically, and can be lost if browser data is cleared. File-based practice and the hosted website may have separate saves. Online loadouts are validated for their allowed ranges, but browser-owned levels are not cheat-proof. This is a casual first version, not a ranked economy.
+XP is no longer earned or used. Coins come from chests and trophy-road rewards. Spend them to level **an owned fighter**, one level at a time, up to 20. The level-2 upgrade costs 60 coins; each subsequent upgrade costs 20 more, up to 420 for level 20. All nineteen upgrades together cost 4,560 coins.
 
-## Online play
+Health, damage and healing still start at **65% of their maximum values**, growing evenly each level to 100% at level 20. The former level-1 base values are the current level-20 maxima. Speed, range and cooldowns do not grow with level. The menu shows current/max stats and a 20-level track. Level 20 grants the mastery badge automatically.
 
-All players must open the same hosted website.
+An ability’s level requirement only makes it **eligible for purchase**. It is not free when leveling up:
 
-- **Online:** separate matchmaking queues for each mode. Duel waits for **2 real players**; Hot Zone and Knockout wait for **6 real players**. These queues do not silently add bots.
-- **Friends:** create a room and share its code. Friends enter only the code and press **Join Existing Room**; the host’s mode applies automatically. The host can start with fewer humans and empty seats become bots. Teams are balanced automatically. A room can replay or change mode after a match; Duel requires no more than two room members.
-- **Practice:** local bots only; no other players join. Choose Rookie, Contender or Veteran.
+| Choice | Gadget level / price | Passive level / price |
+| --- | --- | --- |
+| I | Level 5 / 150 coins | Level 8 / 250 coins |
+| II | Level 10 / 300 coins | Level 12 / 450 coins |
+| III | Level 15 / 600 coins | Level 16 / 750 coins |
+| IV | Level 18 / 1,000 coins | Level 20 / 1,200 coins |
 
-The server owns combat and match state. Movement uses local prediction, server reconciliation and remote interpolation. If a player leaves, their fighter becomes a bot without resetting the game. The host role moves to another room member. Online games continue while a player opens the match menu.
+Purchasing equips that ability. Switching between already-owned choices is free. Only one gadget and one passive are equipped at once. All gadgets have cooldowns. Supers are available from level 1 and cost no coins. Descriptions list level-20 damage/healing values; the actual output scales with level.
 
-## Update your existing ZONEBREAK website
+## Online matchmaking and friends
 
-Replace the files in the existing **ZONEBREAK** repository with the files inside this ZIP’s `ZONEBREAK` folder, then commit the changes. **Include the new `roster.js` file** along with the updated `core.js`, `render.js`, `app.js`, `index.html`, `style.css`, package files and `PLAY.html`. Keeping an old core or omitting the new roster file will break the page. No separate graphics upload is needed.
+Everyone must open the same hosted website.
 
-Use your existing Render Web Service and its existing commands; they have not changed. After deployment, refresh the page and check that the menu shows **1.0.3**. Do not clear browser storage if you want to retain earned XP. An update restarts the game server, so finish active matches first.
+- **Public Online:** separate queues by mode **and exact selected-fighter trophy count**. Duel needs two real players at that trophy count; Hot Zone and Knockout each need six. Level is not a matchmaking restriction. The queue never widens the trophy range or quietly adds bots. This can mean waiting longer when few players are online.
+- **Friends:** create a room, share the code, and join using the code alone. Private rooms do not require equal trophies, so friends can play together. The host can start with empty seats filled by bots. Rooms support replays and mode changes after matches.
+- **Practice:** local bots only. Bots are given the selected fighter’s trophy count and level; their characters are random. Choose Rookie, Contender or Veteran.
 
-## Deploy as a NEW Render game
+| Mode | Rules |
+| --- | --- |
+| Duel | 1v1, first to two round wins, up to 80 seconds per round, no mid-round respawn |
+| Hot Zone | 3v3, capture to 100%, contested zone stops scoring, 3.5-second respawn, three-minute cap |
+| Knockout | 3v3, first to two elimination-round wins, up to 90 seconds per round |
 
-Keep CU-Escape in its current repository and service. Create a **separate GitHub repository** for this game.
+Duel/Knockout have a closing danger ring in the last 25 seconds. Timeout compares remaining health fractions; ties draw the round. A ten-minute overall cap prevents endless tied rounds. There are three original cover/bush layouts.
 
-1. Extract the ZIP. Open the `ZONEBREAK` folder.
-2. Upload **everything inside that folder** to the root of the new repository. Include the `vendor` folder: it contains the bundled WebSocket library and its license. `package.json`, `server.cjs` and `index.html` should be visible at the repository’s top level. There is no `public` folder and no separate sprite upload.
-3. Commit the upload. In Render, create a new **Web Service** connected to that repository. Do not choose Static Site: multiplayer needs the Node server.
-4. Use these settings:
+The server owns combat, uses a 30 Hz simulation, and sends 15 Hz snapshots. Clients predict local movement and interpolate remote movement. Disconnecting fighters become bots without resetting the match, and the room host transfers to another member. Online games continue while the match menu is open.
 
-   | Setting | Value |
-   | --- | --- |
-   | Runtime | Node |
-   | Root directory | Leave blank if files are at the repository root |
-   | Build command | `npm ci --omit=dev` |
-   | Start command | `npm start` |
-   | Health check path | `/health` |
-   | Node version | `24` |
+## Saves and upgrading from 1.0.3
 
-5. Deploy, then open Render’s assigned HTTPS address and share it. WebSocket connections automatically use **WSS** on that address. No API keys, database, additional socket URL, or paid asset service is required by the game.
-6. To update, commit changed files to the branch connected to Render and deploy that commit. The included `render.yaml` also describes the service if using Render’s repository configuration workflow.
+**Profiles remain browser-local, not server accounts.** Coins, fighter ownership, purchases, levels, trophies, road claims and chest progress save in this browser. Clearing its storage can erase them. Saves do not automatically transfer between devices or between file-based practice and a hosted website.
 
-Keep the server at **one instance**. Rooms and queues live in memory; restarting or deploying ends active matches and waiting rooms. Multiple independent server instances would need a shared room system, which this starter does not include. Hosting capacity and network conditions still affect multiplayer performance.
+Old XP profiles are read once: fighters with previously earned XP remain owned and retain their corresponding level and previously earned ability choices. Jolt is always owned. Unplayed fighters that were previously just selectable now need collecting. Old XP is not earned further and is not converted into spendable coins. Career wins/match counts remain. Old results do not retroactively create trophies or daily chests.
 
-## Run locally
+Combat validates level limits, purchased ability declarations and unlock levels. However, **there is no authoritative account database**: the server trusts the local profile’s supplied ownership, purchases and trophies. These casual profiles and exact-trophy queues are not cheat-proof or a secure ranked economy. The daily clock uses the device’s time interpreted in Eastern Time. A server-account economy would need server-owned profiles and transactions.
 
-Install Node 24, open a terminal in this folder, then run:
+## Update your existing Render game
+
+Replace the contents of your existing ZONEBREAK repository with the files inside this ZIP’s `ZONEBREAK` folder, then commit. **Include the new `economy.js`**, as well as the updated `roster.js`, `core.js`, `render.js`, `app.js`, `index.html`, `style.css`, `PLAY.html` and package files. Keep `vendor` in the repository. No `public` folder or separate art upload is used.
+
+Use the same Render **Web Service**, with these unchanged settings:
+
+| Setting | Value |
+| --- | --- |
+| Build | `npm ci --omit=dev` |
+| Start | `npm start` |
+| Health check | `/health` |
+| Node | `24` |
+| Root directory | Blank if package.json is at repository root |
+
+Once deployed, reload and check for **1.0.4** in the menu. HTTPS automatically uses WSS for game connections. This package has not been deployed to your Render account. Keep CU-Escape in its separate repository/service.
+
+One server instance is supported. Rooms/queues are in memory, so deploying or restarting ends active matches. Additional instances would need shared matchmaking/room infrastructure.
+
+## Run and verify locally
+
+Install Node 24, then run in this folder:
 
 ```sh
 npm ci --omit=dev
 npm start
 ```
 
-Open `http://localhost:3000`. The server reads the `PORT` environment variable when hosted and otherwise uses port 3000. The required MIT-licensed `ws` library is bundled in `vendor/ws`, so installation does not need to download any packages. `vendor/ws/LICENSE` contains its license.
+Open `http://localhost:3000`. The server reads `PORT` when hosted. The MIT-licensed WebSocket dependency is bundled in `vendor/ws`, including its license, so installation needs no registry downloads.
 
-## Development and verification
-
-Edit `index.html`, `style.css`, `app.js`, `roster.js`, `core.js`, or `render.js`. After changes, regenerate the optional offline practice page:
+After changing sources, regenerate the offline page and run checks:
 
 ```sh
 node build.cjs
 npm test
 ```
 
-The 51 automated tests cover the 30-fighter roster, six class filters, all basic attacks and healing attacks, 20-level stat growth and higher-level unlocks, all 120 gadget selections, distinct super mechanics, marksman range and cover interactions, multiplayer marksman selection, wall-face sliding across all maps and fighter sizes, the original corner-lock regression, dash collisions, prediction, combat and objectives, bot navigation, rewards, real WebSocket matchmaking and room replay, multiplayer wall movement, save migration and UI flows. The old version stops moving in the corner-lock regression; this version slides past it.
-
-An additional 18 complete simulated bot matches exercise all three modes at levels 1, 5, 10, 15, 18 and 20. Tests also check scaled combat output, new gadget/passive effects, level-20 mastery, old XP preservation, fourth-slot saving, and multiplayer level clamping. UI checks use a simulated DOM rather than a live browser.
-
-Tests include real HTTP/WebSocket connections; the UI tests use a simulated browser DOM. They do not replace a live browser playtest with friends or a real-world latency test. This package has not been deployed to your Render account.
+The 63 automated tests cover combat, all fighters and abilities, wall sliding, 20-level scaling, purchased ability gates, coin transactions, Jolt-only starts, trophy-road rewards, six-click saved chests, daily limits and Eastern Time/DST resets, exact-trophy queues at different levels, real HTTP/WebSocket games, room replay/disconnects, save migration and application UI flows. UI tests use a simulated DOM; they do not replace live browser or internet-latency playtesting.

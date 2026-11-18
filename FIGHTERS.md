@@ -1,6 +1,6 @@
-# ZONEBREAK fighter guide — 1.0.3
+# ZONEBREAK fighter guide — 1.0.4
 
-The stats and numeric ability descriptions below are the **level-20 maximum values**. Level 1 begins at 65% of these health, damage and healing values; every level increases them until level 20 reaches 100%. Speed, range and cooldowns do not scale with level. Supers remain available from level 1. Four gadget choices unlock at 5 / 10 / 15 / 18; four passive choices at 8 / 12 / 16 / 20. Equip one of each. Level 20 grants a mastery badge.
+The stats and numeric ability descriptions below are the **level-20 maximum values**. Level 1 begins at 65% of these health, damage and healing values; every level increases them until level 20 reaches 100%. Speed, range and cooldowns do not scale with level. Supers remain available from level 1. Four gadget choices become purchasable at 5 / 10 / 15 / 18; four passives at 8 / 12 / 16 / 20. Leveling and buying each ability are separate coin purchases. Equip one purchased choice of each kind. Level 20 grants a mastery badge. New players start with Jolt; collect the other fighters through trophy road rewards or Legendary daily chests.
 
 ## Tanks
 
