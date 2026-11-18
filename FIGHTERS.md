@@ -1,4 +1,4 @@
-# ZONEBREAK fighter guide — 1.0.1
+# ZONEBREAK fighter guide — 1.0.2
 
 Base stats below are for level 1. Supers work at level 1. Gadget choices unlock at 4 / 7 / 9; passive choices at 6 / 8 / 10. Class members share three gadget and passive effect families, while their stats, basic attacks and supers create different playstyles.
 
@@ -71,4 +71,18 @@ Passive effects: **Level 6: Wide Radius** — Your explosions have a 12% wider r
 Gadget effects: **Level 4: Vanish** — Cloak for 1.8 seconds. Attacking reveals you; close enemies can still see you. (20s cooldown); **Level 7: Ambush** — The next attack within 5 seconds deals 30% more damage. (18s cooldown); **Level 9: Second Escape** — Dash 140 units toward your aim. Walls block the dash. (18s cooldown).
 
 Passive effects: **Level 6: Execution** — Deal 12% more damage to enemies below 35% health.; **Level 8: Escape Artist** — A knockout instantly heals you for 850 health.; **Level 10: Shadow Pace** — Move 10% faster after 2 seconds without attacking..
+
+## Marksmen
+
+| Fighter | HP / speed / range | Basic attack and playstyle | Super |
+| --- | --- | --- | --- |
+| Scope | 4700 / 218 / 780 | **Longshot** — A patient precision specialist. Very long reach and a narrow shot reward careful aim and open firing lanes. | **Dead Straight** — Fire a narrow piercing rail shot up to 950 units for 2,800 damage. Cover blocks it. |
+| Kestrel | 4900 / 232 / 690 | **Twin Talons** — A mobile twin-bolt ranger. A slightly shorter reach buys faster movement and a forgiving two-shot pattern. | **Crosswind** — Fire three long-range piercing bolts, each dealing 1,000 damage and briefly slowing enemies. |
+| Vega | 4500 / 225 / 720 | **Starlance** — A rapid laser scout. Lower damage per shot and a faster firing cycle allow steady pressure from distant lanes. | **Constellation** — Send three closely spaced piercing beams down a lane, each dealing 1,050 damage with 880 units of reach. |
+| Quill | 4600 / 224 / 750 | **Needle Arrow** — A line-piercing sharpshooter. Basic arrows can hit multiple fighters; a pinning super slows targets for follow-up shots. | **Pinning Shot** — Loose one piercing arrow for 2,100 damage that slows enemies for 2.6 seconds. Range: 850 units. |
+| Sable | 5100 / 210 / 740 | **Heavy Caliber** — A steady heavy-rifle specialist. Slower attacks hit harder, while a recoil super creates distance from pursuers. | **Recoil Shot** — Fire a 2,600-damage piercing shot up to 900 units, then retreat 135 units away from your aim. Walls block both. |
+
+Gadget effects: **Level 4: Speedloader** — Instantly refill all three ammo cells. (18s cooldown); **Level 7: Power Cell** — The next basic attack within 5 seconds deals 45% more damage. (19s cooldown); **Level 9: Sniper Step** — Dash 130 units toward your aim. Walls block the dash. (17s cooldown).
+
+Passive effects: **Level 6: Deadeye** — Deal 12% more basic damage beyond half your range.; **Level 8: Rapid Cycle** — Reload ammo 15% faster.; **Level 10: Overcharge** — Gain 20% more super charge from dealing damage..
 

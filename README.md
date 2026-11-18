@@ -1,6 +1,6 @@
-# ZONEBREAK — 1.0.1
+# ZONEBREAK — 1.0.2
 
-A separate, original browser arena game. ZONEBREAK is a working title. It does not modify CU-Escape. All graphics are drawn in code, sound is synthesized, and the whole project is small enough to upload together. There are no sprite packs, external fonts, asset servers, or build downloads.
+A separate, original browser arena game. Update 1.0.2 adds the Marksmen class with five new fighters; the level curve, existing saves and ability unlock levels carry over. ZONEBREAK is a working title. It does not modify CU-Escape. All graphics are drawn in code, sound is synthesized, and the whole project is small enough to upload together. There are no sprite packs, external fonts, asset servers, or build downloads.
 
 ## Try it immediately
 
@@ -27,7 +27,7 @@ This initial version targets computers with a keyboard and mouse. It has no touc
 
 Duel and Knockout have a closing danger ring during the final 25 seconds. A timeout compares total remaining health as a fraction of each fighter’s maximum health. Ties draw the round; a ten-minute overall cap prevents endless tied matches. Each mode has its own cover and bush layout.
 
-## Five class menus, twenty-five fighters
+## Six class menus, thirty fighters
 
 Click a class to show only that class’s five fighter cards. The roster no longer fills the screen with every fighter.
 
@@ -38,20 +38,21 @@ Click a class to show only that class’s five fighter cards. The roster no long
 | Healers | Sprig, Pulse, Brook, Lumen, Mender |
 | Artillery | Fuse, Tumble, Cinder, Drizzle, Orbit |
 | Assassins | Wisp, Nyx, Talon, Volt, Shade |
+| Marksmen | Scope, Kestrel, Vega, Quill, Sable |
 
-Each fighter has independent progression, different base stats, its own attack pattern and a unique super. Tanks have almost no basic attack range. Damage dealers specialize in mid-range fire. All five healers can heal allies or damage enemies with their basic attacks. Every artillery fighter lobs over walls. Assassins have high movement speed and low health. See **FIGHTERS.md** for all attacks, supers and stats.
+Each fighter has independent progression, different base stats, its own attack pattern and a unique super. Tanks have almost no basic attack range. Damage dealers specialize in mid-range fire. All five healers can heal allies or damage enemies with their basic attacks. Every artillery fighter lobs over walls. Assassins have high movement speed and low health. Marksmen have medium health (4,500–5,100 base HP), long straight-line range (690–780 units), and slower deliberate shots. Cover still blocks their attacks. See **FIGHTERS.md** for all attacks, supers and stats.
 
 New playstyles include Anchor’s hook, Echo’s returning wave, Bramble’s slowing thorns, Brook’s piercing healing bolts, Lumen’s protective halo, Cinder’s persistent fire, Nyx’s empowered cloak, Volt’s storm dash and Shade’s life-stealing super.
 
 Every fighter starts with three ammo cells. Ammo reloads automatically. Staying out of combat restores health after four seconds. Damage and healing charge supers, alongside a slow passive charge. **Supers remain available at level 1; gadgets and passives do not.**
 
-Each fighter now has **three gadget choices and three passive choices**, with class-based effects. Equip one gadget and one passive once their unlock levels are reached. Gadgets activate once per cooldown; holding E cannot repeatedly trigger one. The third options add tank mobility, damage-dealer evasive dashes, healer protection, artillery emergency ammo and assassin escape dashes. The third passives add healthy-tank movement, bonus super charge, stronger emergency healing, artillery mobility and out-of-combat assassin movement.
+Each fighter now has **three gadget choices and three passive choices**, with class-based effects. Equip one gadget and one passive once their unlock levels are reached. Gadgets activate once per cooldown; holding E cannot repeatedly trigger one. The third options add tank mobility, damage-dealer and marksman evasive dashes, healer protection, artillery emergency ammo and assassin escape dashes. The third passives add healthy-tank movement, bonus damage-dealer/marksman super charge, stronger emergency healing, artillery mobility and out-of-combat assassin movement.
 
 Bushes conceal enemies until you get close or they reveal themselves by attacking or taking damage. Wisp’s concealment also ends at close range and is broken by attacking. Cover blocks movement, ordinary shots and dashes; lobbed bombs travel over it.
 
 ## Fighter levels and saves
 
-Each fighter has independent XP and levels 1–10. Each level adds 4% to base health, damage, and healing. All 25 fighters are selectable immediately. Unlocks are enforced in local practice and by the multiplayer server.
+Each fighter has independent XP and levels 1–10. Each level adds 4% to base health, damage, and healing. All 30 fighters are selectable immediately. Unlocks are enforced in local practice and by the multiplayer server.
 
 | Level | Ability unlock | Total fighter XP |
 | --- | --- | --- |
@@ -86,7 +87,7 @@ The server owns combat and match state. Movement uses local prediction, server r
 
 Replace the files in the existing **ZONEBREAK** repository with the files inside this ZIP’s `ZONEBREAK` folder, then commit the changes. **Include the new `roster.js` file** along with the updated `core.js`, `render.js`, `app.js`, `index.html`, `style.css`, package files and `PLAY.html`. Keeping an old core or omitting the new roster file will break the page. No separate graphics upload is needed.
 
-Use your existing Render Web Service and its existing commands; they have not changed. After deployment, refresh the page and check that the menu shows **1.0.1**. Do not clear browser storage if you want to retain earned XP. An update restarts the game server, so finish active matches first.
+Use your existing Render Web Service and its existing commands; they have not changed. After deployment, refresh the page and check that the menu shows **1.0.2**. Do not clear browser storage if you want to retain earned XP. An update restarts the game server, so finish active matches first.
 
 ## Deploy as a NEW Render game
 
@@ -131,7 +132,7 @@ node build.cjs
 npm test
 ```
 
-The 36 automated tests cover the 25-fighter roster, five class filters, all basic attacks and healing attacks, higher-level unlocks, all 75 gadget selections, distinct super mechanics, wall-face sliding across all maps and fighter sizes, the original corner-lock regression, dash collisions, prediction, combat and objectives, bot navigation, rewards, real WebSocket matchmaking and room replay, multiplayer wall movement, save migration and UI flows. The old version stops moving in the corner-lock regression; this version slides past it.
+The 42 automated tests cover the 30-fighter roster, six class filters, all basic attacks and healing attacks, higher-level unlocks, all 90 gadget selections, distinct super mechanics, marksman range and cover interactions, multiplayer marksman selection, wall-face sliding across all maps and fighter sizes, the original corner-lock regression, dash collisions, prediction, combat and objectives, bot navigation, rewards, real WebSocket matchmaking and room replay, multiplayer wall movement, save migration and UI flows. The old version stops moving in the corner-lock regression; this version slides past it.
 
 An additional 30 complete simulated bot matches exercised all three modes with locked level-1 loadouts and unlocked level-10 loadouts. The actual Canvas renderer was used to inspect every fighter portrait. Neither check is a claim of a live browser playtest or internet latency test.
 

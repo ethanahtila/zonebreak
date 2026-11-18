@@ -1,6 +1,6 @@
 (function(root,factory){const api=factory(typeof module==='object'&&module.exports?require('./roster.js'):root.ZoneRoster);if(typeof module==='object'&&module.exports)module.exports=api;else root.Zone=api;})(typeof globalThis!=='undefined'?globalThis:this,(Roster)=>{
 'use strict';
-const VERSION='1.0.1',DT=1/30,W=1280,H=860,TAU=Math.PI*2,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+const VERSION='1.0.2',DT=1/30,W=1280,H=860,TAU=Math.PI*2,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 const fighters=[
 {id:'rook',name:'Rook',role:'Tank',tag:'HOLD THE FRONT',color:'#f5bc63',dark:'#9f653b',hp:7600,speed:205,range:100,damage:1660,reload:1.05,rate:.64,r:25,description:'A walking fortress. Devastating at arm’s length, but needs cover to close the gap.',attack:'Pile Driver',super:'Faultline',superInfo:'Charge forward, slam nearby enemies, and gain a brief shield.',gadgets:[{name:'Iron Skin',info:'Take 40% less damage for 3 seconds.',cd:17},{name:'Second Wind',info:'Instantly restore 22% of maximum health.',cd:22}],passives:[{name:'Last Stand',info:'Take 15% less damage while below 35% health.'},{name:'Heavy Hands',info:'Basic hits briefly slow the target.'}]},
 {id:'jolt',name:'Jolt',role:'Damage dealer',tag:'MAKE EVERY BURST COUNT',color:'#8bc9ff',dark:'#466cb1',hp:4500,speed:230,range:475,damage:1050,reload:1,rate:.46,r:20,description:'A mid-range burst specialist. Consistent pressure, high damage, and a precise piercing super.',attack:'Tri-Burst',super:'Rail Surge',superInfo:'Fire a powerful piercing energy shot. Walls still block it.',gadgets:[{name:'Speedloader',info:'Instantly refill all three ammo cells.',cd:18},{name:'Power Cell',info:'The next basic attack within 5 seconds deals 45% more damage.',cd:19}],passives:[{name:'Deadeye',info:'Deal 12% more basic damage beyond half your range.'},{name:'Rapid Cycle',info:'Reload ammo 15% faster.'}]},
@@ -61,6 +61,11 @@ function field(s,p,x,y,options){s.fields.push({id:s.next++,owner:p.id,team:p.tea
 function aimed(p,i,range){const d=Math.hypot(i.aimX-p.x,i.aimY-p.y)||1,k=Math.min(1,range/d);return {x:p.x+(i.aimX-p.x)*k,y:p.y+(i.aimY-p.y)*k};}
 function customSuper(s,p,i,c,a){const at=aimed(p,i,c.range),scale=c.scale;
  switch(c.superKind){
+ case 'deadstraight':shot(s,p,a,2800*scale,{range:950,speed:1450,pierce:true,r:9,kind:'rail'});break;
+ case 'crosswind':for(const d of [-.09,0,.09])shot(s,p,a+d,1000*scale,{range:820,speed:1150,pierce:true,r:7,slow:.8});break;
+ case 'constellation':for(const d of [-.035,0,.035])shot(s,p,a+d,1050*scale,{range:880,speed:1350,pierce:true,r:6,kind:'rail'});break;
+ case 'pinningshot':shot(s,p,a,2100*scale,{range:850,speed:1200,pierce:true,r:10,slow:2.6});break;
+ case 'recoilshot':shot(s,p,a,2600*scale,{range:900,speed:1300,pierce:true,r:13,kind:'rail'});walk(s,p,-Math.cos(a)*135,-Math.sin(a)*135);break;
  case 'rally':aoe(s,p,p.x,p.y,190,1250*scale);for(const q of s.players)if(q.team===p.team&&q.alive&&dist(p,q)<210)q.shield=3;break;
  case 'thorns':field(s,p,p.x,p.y,{r:160,life:5,damage:300*scale,slow:.6});break;
  case 'furnace':for(let n=0;n<6;n++)shot(s,p,a+(n-2.5)*.13,400*scale,{range:210,speed:700,pierce:true,r:10});break;
