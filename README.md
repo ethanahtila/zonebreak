@@ -1,6 +1,6 @@
-# ZONEBREAK — 1.0.2
+# ZONEBREAK — 1.0.3
 
-A separate, original browser arena game. Update 1.0.2 adds the Marksmen class with five new fighters; the level curve, existing saves and ability unlock levels carry over. ZONEBREAK is a working title. It does not modify CU-Escape. All graphics are drawn in code, sound is synthesized, and the whole project is small enough to upload together. There are no sprite packs, external fonts, asset servers, or build downloads.
+A separate, original browser arena game. Update 1.0.3 expands every fighter to 20 levels, gradually increases health/damage/healing from reduced starting stats to full strength, and adds later ability choices and a mastery reward. Earned XP is preserved. ZONEBREAK is a working title. It does not modify CU-Escape. All graphics are drawn in code, sound is synthesized, and the whole project is small enough to upload together. There are no sprite packs, external fonts, asset servers, or build downloads.
 
 ## Try it immediately
 
@@ -46,28 +46,43 @@ New playstyles include Anchor’s hook, Echo’s returning wave, Bramble’s slo
 
 Every fighter starts with three ammo cells. Ammo reloads automatically. Staying out of combat restores health after four seconds. Damage and healing charge supers, alongside a slow passive charge. **Supers remain available at level 1; gadgets and passives do not.**
 
-Each fighter now has **three gadget choices and three passive choices**, with class-based effects. Equip one gadget and one passive once their unlock levels are reached. Gadgets activate once per cooldown; holding E cannot repeatedly trigger one. The third options add tank mobility, damage-dealer and marksman evasive dashes, healer protection, artillery emergency ammo and assassin escape dashes. The third passives add healthy-tank movement, bonus damage-dealer/marksman super charge, stronger emergency healing, artillery mobility and out-of-combat assassin movement.
+Each fighter now has **four gadget choices and four passive choices**, with class-based effects. Equip one gadget and one passive once their unlock levels are reached. Gadgets activate once per cooldown; holding E cannot repeatedly trigger one. The third options add tank mobility, damage-dealer and marksman evasive dashes, healer protection, artillery emergency ammo and assassin escape dashes. The third passives add healthy-tank movement, bonus damage-dealer/marksman super charge, stronger emergency healing, artillery mobility and out-of-combat assassin movement. The new fourth gadgets provide a tank shockwave/shield, a reload-and-speed burst, team restoration, an empowered artillery attack, or a cloaked assassin retreat. Fourth passives improve tank regeneration, full-ammo opening shots, healthy-healer output, basic blast damage, or cloaked first strikes. Level 20 also grants an automatic mastery badge: a gold fighter card and a star by the fighter’s name in matches.
 
 Bushes conceal enemies until you get close or they reveal themselves by attacking or taking damage. Wisp’s concealment also ends at close range and is broken by attacking. Cover blocks movement, ordinary shots and dashes; lobbed bombs travel over it.
 
 ## Fighter levels and saves
 
-Each fighter has independent XP and levels 1–10. Each level adds 4% to base health, damage, and healing. All 30 fighters are selectable immediately. Unlocks are enforced in local practice and by the multiplayer server.
+Each fighter has independent XP and **levels 1–20**. Level 1 starts with **65% of maximum health, damage and healing**. These values rise evenly by about 1.84 percentage points of maximum per level, reaching **100% at level 20**. The old level-1 base stat values are now the level-20 maximum values; the previous multiplier above those values is removed. Speed, range, cooldowns and movement are not increased by level.
 
-| Level | Ability unlock | Total fighter XP |
+The menu shows current health/damage/healing alongside each maximum, plus stat power, an expandable 20-level reward track, and mastery status. Every level grants stat growth, including levels between ability unlocks. Ability descriptions list damage and healing at full level-20 power; actual match output scales to the fighter’s level.
+
+All 30 fighters remain selectable immediately. Equip one gadget and one passive once unlocked; new choices are alternatives, not extra simultaneous slots. There are no gadgets or passives at level 1. Supers remain available from level 1.
+
+| Level | Reward (plus stat growth) | Total fighter XP |
 | --- | --- | --- |
-| 1 | Basic attack and super; no gadget or passive | 0 |
-| 2 | — | 350 |
-| 3 | — | 800 |
-| 4 | Gadget I | 1,350 |
-| 5 | — | 2,000 |
-| 6 | Passive I | 2,750 |
-| 7 | Gadget II | 3,600 |
-| 8 | Passive II | 4,550 |
-| 9 | Gadget III | 5,600 |
-| 10 | Passive III | 6,750 |
+| 1 | Basic attack + super | 0 |
+| 2 | Stat growth | 350 |
+| 3 | Stat growth | 800 |
+| 4 | Stat growth | 1,350 |
+| 5 | Gadget 1 | 2,000 |
+| 6 | Stat growth | 2,750 |
+| 7 | Stat growth | 3,600 |
+| 8 | Passive 1 | 4,550 |
+| 9 | Stat growth | 5,600 |
+| 10 | Gadget 2 | 6,750 |
+| 11 | Stat growth | 8,000 |
+| 12 | Passive 2 | 9,350 |
+| 13 | Stat growth | 10,800 |
+| 14 | Stat growth | 12,350 |
+| 15 | Gadget 3 | 14,000 |
+| 16 | Passive 3 | 15,750 |
+| 17 | Stat growth | 17,600 |
+| 18 | Gadget 4 | 19,550 |
+| 19 | Stat growth | 21,600 |
+| 20 | Passive 4 + mastery badge | 23,750 |
 
-This is slower than 1.0.0: level 2 used to require 100 XP and now requires 350. **Previously earned XP is preserved** in the same browser save. Displayed levels are recalculated using the slower curve, so an existing fighter may show a lower level. Unavailable old loadout choices fall back to the first unlocked choice, or remain inactive until the first unlock. New fighters receive separate fresh XP records.
+
+**Earned XP and saves are preserved.** The first ten XP thresholds are unchanged from 1.0.2, so existing level numbers carry over and can now continue to 20. Displayed stats and ability availability follow the new balance and unlock schedule. An old equipped choice that is now locked falls back to the first available choice; if none is unlocked, it stays inactive.
 
 Finished matches award XP for participating, winning and contributing damage, healing or zone time. Practice earns 75% of online XP. Leaving an unfinished match does not award XP.
 
@@ -87,7 +102,7 @@ The server owns combat and match state. Movement uses local prediction, server r
 
 Replace the files in the existing **ZONEBREAK** repository with the files inside this ZIP’s `ZONEBREAK` folder, then commit the changes. **Include the new `roster.js` file** along with the updated `core.js`, `render.js`, `app.js`, `index.html`, `style.css`, package files and `PLAY.html`. Keeping an old core or omitting the new roster file will break the page. No separate graphics upload is needed.
 
-Use your existing Render Web Service and its existing commands; they have not changed. After deployment, refresh the page and check that the menu shows **1.0.2**. Do not clear browser storage if you want to retain earned XP. An update restarts the game server, so finish active matches first.
+Use your existing Render Web Service and its existing commands; they have not changed. After deployment, refresh the page and check that the menu shows **1.0.3**. Do not clear browser storage if you want to retain earned XP. An update restarts the game server, so finish active matches first.
 
 ## Deploy as a NEW Render game
 
@@ -132,8 +147,8 @@ node build.cjs
 npm test
 ```
 
-The 42 automated tests cover the 30-fighter roster, six class filters, all basic attacks and healing attacks, higher-level unlocks, all 90 gadget selections, distinct super mechanics, marksman range and cover interactions, multiplayer marksman selection, wall-face sliding across all maps and fighter sizes, the original corner-lock regression, dash collisions, prediction, combat and objectives, bot navigation, rewards, real WebSocket matchmaking and room replay, multiplayer wall movement, save migration and UI flows. The old version stops moving in the corner-lock regression; this version slides past it.
+The 51 automated tests cover the 30-fighter roster, six class filters, all basic attacks and healing attacks, 20-level stat growth and higher-level unlocks, all 120 gadget selections, distinct super mechanics, marksman range and cover interactions, multiplayer marksman selection, wall-face sliding across all maps and fighter sizes, the original corner-lock regression, dash collisions, prediction, combat and objectives, bot navigation, rewards, real WebSocket matchmaking and room replay, multiplayer wall movement, save migration and UI flows. The old version stops moving in the corner-lock regression; this version slides past it.
 
-An additional 30 complete simulated bot matches exercised all three modes with locked level-1 loadouts and unlocked level-10 loadouts. The actual Canvas renderer was used to inspect every fighter portrait. Neither check is a claim of a live browser playtest or internet latency test.
+An additional 18 complete simulated bot matches exercise all three modes at levels 1, 5, 10, 15, 18 and 20. Tests also check scaled combat output, new gadget/passive effects, level-20 mastery, old XP preservation, fourth-slot saving, and multiplayer level clamping. UI checks use a simulated DOM rather than a live browser.
 
 Tests include real HTTP/WebSocket connections; the UI tests use a simulated browser DOM. They do not replace a live browser playtest with friends or a real-world latency test. This package has not been deployed to your Render account.
