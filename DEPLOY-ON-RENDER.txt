@@ -1,0 +1,6 @@
+Deploying ZONEBREAK on Render
+1. Unzip this file. Put everything inside the "zonebreak" folder into a new GitHub repository (the files must sit at the top of the repo, next to package.json and render.yaml).
+2. On render.com choose New > Blueprint (it reads render.yaml), or New > Web Service and pick the repo:
+   Runtime: Node · Build command: npm ci --omit=dev · Start command: npm start · Health check path: /health
+3. Open the .onrender.com address Render gives you. Online rooms, matchmaking and ranked all run on this one server.
+Player progress is saved in each player's browser, so no database is needed.
